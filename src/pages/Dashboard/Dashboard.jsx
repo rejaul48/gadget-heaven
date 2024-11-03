@@ -1,20 +1,42 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import AddedCard from '../../components/AddedCard/AddedCard'
 
 const Dashboard = () => {
   return (
     <>
       <main className='container mx-auto mt-4'>
-        <div className="section_hero text-center bg-primary text-white rounded-lg h-[250px] py-4">
+
+        <div className="section_hero text-center bg-primary text-white rounded-lg h-[200px] py-4">
           <h2 className='text-3xl font-semibold'>Dashboard</h2>
           <p className='w-7/12 mx-auto mt-2'>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
 
-          <div>
-            <Link> <button>Cart</button></Link>
-            <Link><button>Wishlist</button></Link>
+          <div className='flex justify-center items-center gap-5 mt-3'>
+            <Link> <button className='py-2 px-8 rounded-full bg-white text-primary font-bold'>Cart</button></Link>
+            <Link><button className='py-2 px-8 rounded-full border-2 border-white '>Wishlist</button></Link>
           </div>
 
         </div>
+
+        <div className="card_added_info flex justify-between items-center mt-3">
+          <div>
+            <h2 className='text-2xl font-bold'>Cart</h2>
+          </div>
+          <div className='flex items-center gap-5'>
+            <h2 className='text-lg font-bold'>Total Cost: $ <span>999.99</span></h2>
+            <button className='flex items-center gap-1 border-2 border-primary text-primary font-bold px-5 py-2 rounded-full'>Sorted By Price <span><img className='w-[15px]' src="https://img.icons8.com/?size=24&id=100608&format=png" alt="" /></span></button>
+            <button className='bg-primary text-white px-8 py-3 rounded-full'>Purchase</button>
+          </div>
+        </div>
+
+        <div>
+          {/* wishlist and cart show here */}
+          <AddedCard ></AddedCard>
+          <AddedCard ></AddedCard>
+          <AddedCard ></AddedCard>
+          <AddedCard ></AddedCard>
+        </div>
+
       </main>
     </>
   )
