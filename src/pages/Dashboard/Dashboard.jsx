@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { NavLink, Outlet, useLoaderData, useLocation } from 'react-router-dom';
 import { getStoreCartData } from '../../utilities/localStorage';
+import useTitleHook from '../../components/useTitleHook/useTitleHook';
 
 const Dashboard = () => {
+  // Dynamic title show here
+  useTitleHook('Dashboard')
+
   const location = useLocation();
   const isCartPage = location.pathname === '/dashboard/cart';
 
@@ -18,7 +22,7 @@ const Dashboard = () => {
   const totalPrice = isCartPage
     ? productData.filter(product => cartData.includes(product.product_id))
       .reduce((acu, product) => Math.round(acu + product.price), 0)
-    : 0;  
+    : 0;
 
   const toggleSortOrder = () => {
     setSortOrder(prevOrder => (prevOrder === 'asc' ? 'desc' : 'asc'));
@@ -64,8 +68,8 @@ const Dashboard = () => {
           </div>
           <div className='grid grid-cols-1 md:grid-cols-3 md:items-center gap-5'>
             <h2 className='text-lg font-bold'>Total Cost: $ <span>{totalPrice}</span></h2>
-            <button 
-              onClick={toggleSortOrder} 
+            <button
+              onClick={toggleSortOrder}
               className='flex items-center gap-1 border-2 border-primary text-primary font-bold px-5 py-2 rounded-full'>
               Sorted By Price <span><img className='w-[15px]' src="https://img.icons8.com/?size=24&id=100608&format=png" alt="" /></span>
             </button>

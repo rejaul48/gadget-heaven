@@ -1,6 +1,9 @@
 import React from 'react'
+import useTitleHook from '../../components/useTitleHook/useTitleHook'
 
 const Statistics = () => {
+  // dynamic title
+  useTitleHook('Statistics')
   return (
     <>
      

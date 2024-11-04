@@ -1,8 +1,12 @@
 import React from 'react'
 import { useLoaderData, useParams } from 'react-router-dom'
 import { addToLocalStorageCartData, addWishDataIntoLocalStorage } from '../../utilities/localStorage';
+import useTitleHook from '../../components/useTitleHook/useTitleHook';
 
 const Details = () => {
+
+    // Dynamic Title
+    useTitleHook('Details')
 
     const { productId } = useParams();
     const { productData } = useLoaderData();

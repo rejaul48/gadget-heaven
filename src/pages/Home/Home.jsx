@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link, Outlet, useLoaderData, useLocation } from 'react-router-dom';
 import HomeCards from '../../components/HomeCards/HomeCards';
+import useTitleHook from '../../components/useTitleHook/useTitleHook';
 
 const Home = () => {
+    // dynamic title
+    useTitleHook('Home')
+
     const { categories, productData } = useLoaderData();
     const location = useLocation();
     const isRootPath = location.pathname === '/';
