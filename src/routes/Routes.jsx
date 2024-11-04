@@ -6,6 +6,7 @@ import Statistics from '../pages/Statistics/Statistics'
 import Dashboard from '../pages/Dashboard/Dashboard'
 import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import Details from '../pages/Details/Details'
+import { dataLoadFromApi } from '../utilities/FetchDataFromApi'
 
 
 const routes = createBrowserRouter([
@@ -17,7 +18,7 @@ const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home ></Home>,
-                loader: () => fetch('/categories-api.json')
+                loader: dataLoadFromApi
             },
             {
                 path: '/statistics',
@@ -27,8 +28,9 @@ const routes = createBrowserRouter([
                 path: '/dashboard',
                 element: <Dashboard ></Dashboard>
             }, {
-                path: '/details',
-                element: <Details ></Details>
+                path: '/details/:productId',
+                element: <Details ></Details>,
+                loader: dataLoadFromApi
             }
 
         ]

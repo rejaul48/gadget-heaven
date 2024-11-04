@@ -1,25 +1,33 @@
 import React from 'react'
-import { Link, NavLink } from "react-router-dom";
-import Hero from '../Hero/Hero';
+import { Link, NavLink, useLocation } from "react-router-dom";
 const Header = () => {
+
+
+    const location = useLocation();
+
+    const isHomepage = location.pathname === '/';
+
+    const conditionalHeader = isHomepage ? "rounded-t-lg bg-primary" : "rounded-full bg-white text-black";
+    const headerTextColor = isHomepage ? "text-white" : "text-black";
 
     const links = <>
         <li><NavLink to='/' >Home</NavLink> </li>
         <li><NavLink to='/statistics' >Statistics</NavLink> </li>
         <li><NavLink to='/dashboard' >Dashboard</NavLink> </li>
-        <li><NavLink to='/details' >Details</NavLink> </li>
+       
     </>
 
     return (
+
         <>
-            <header className='container mx-auto border-2 border-gray-200 p-2 mt-2 rounded-lg
+            <header className='container mx-auto mt-2 
             
             '>
-                <section className=' bg-primary backdrop-blur-lg rounded-lg 
-                
+                <section className={`backdrop-blur-lg rounded-t-lg 
+                ${conditionalHeader}
           
-                '>
-                    <div className="navbar  rounded-lg text-white lg:px-8">
+                `}>
+                    <div className={`navbar  rounded-lg ${headerTextColor} lg:px-8`}>
                         <div className="navbar-start">
                             <div className="dropdown">
                                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -61,7 +69,7 @@ const Header = () => {
                     </div>
                 </section>
             </header>
-          
+
 
         </>
     )

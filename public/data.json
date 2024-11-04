@@ -1,0 +1,200 @@
+[
+    {
+        "product_id": "LAP001",
+        "product_title": "Dell XPS 13",
+        "product_image": "https://i.imgur.com/wAHmMth.jpeg",
+        "category": "Laptops",
+        "price": 999.99,
+        "description": "A high-performance laptop with an edge-to-edge display and Intel i7 processor.",
+        "Specification": ["Intel i7 Processor", "16GB RAM", "512GB SSD", "13.4-inch FHD Display"],
+        "availability": true,
+        "rating": 4.5
+    },
+    {
+        "product_id": "LAP002",
+        "product_title": "Apple MacBook Pro 14",
+        "product_image": "https://i.imgur.com/A7TLEjA.jpeg",
+        "category": "Laptops",
+        "price": 1999.99,
+        "description": "The latest MacBook Pro with M1 Pro chip for faster processing and improved battery life.",
+        "Specification": ["Apple M1 Pro Chip", "16GB RAM", "1TB SSD", "14-inch Retina Display"],
+        "availability": true,
+        "rating": 4.8
+    },
+    {
+        "product_id": "LAP003",
+        "product_title": "HP Spectre x360",
+        "product_image": "https://i.imgur.com/sNtHPSS.png",
+        "category": "Laptops",
+        "price": 1249.99,
+        "description": "A convertible laptop with touchscreen capabilities and sleek design.",
+        "Specification": ["Intel i5 Processor", "8GB RAM", "512GB SSD", "13.3-inch Touchscreen Display"],
+        "availability": true,
+        "rating": 4.4
+    },
+    {
+        "product_id": "LAP004",
+        "product_title": "Asus ROG Zephyrus G14",
+        "product_image": "https://i.imgur.com/UVznvln.jpeg",
+        "category": "Laptops",
+        "price": 1499.99,
+        "description": "Gaming laptop with AMD Ryzen 9 processor and dedicated NVIDIA GPU.",
+        "Specification": ["AMD Ryzen 9", "16GB RAM", "1TB SSD", "14-inch QHD Display", "NVIDIA RTX 3060"],
+        "availability": false,
+        "rating": 4.7
+    },
+    {
+        "product_id": "LAP005",
+        "product_title": "Lenovo ThinkPad X1 Carbon",
+        "product_image": "https://i.imgur.com/rdEzDuB.png",
+        "category": "Laptops",
+        "price": 1350.00,
+        "description": "A durable business laptop with extended battery life and lightweight design.",
+        "Specification": ["Intel i7 Processor", "16GB RAM", "512GB SSD", "14-inch FHD Display"],
+        "availability": true,
+        "rating": 4.6
+    },
+    {
+        "product_id": "LAP006",
+        "product_title": "Microsoft Surface Laptop 4",
+        "product_image": "https://i.imgur.com/rhF5Xya.jpeg",
+        "category": "Laptops",
+        "price": 999.99,
+        "description": "Stylish laptop with touchscreen and excellent battery performance.",
+        "Specification": ["Intel i5 Processor", "8GB RAM", "256GB SSD", "13.5-inch Touchscreen Display"],
+        "availability": true,
+        "rating": 4.5
+    },
+    {
+        "product_id": "LAP007",
+        "product_title": "Acer Swift 3",
+        "product_image": "https://i.imgur.com/vTX3hi9.png",
+        "category": "Laptops",
+        "price": 649.99,
+        "description": "An affordable, lightweight laptop with long battery life and good performance.",
+        "Specification": ["AMD Ryzen 5", "8GB RAM", "512GB SSD", "14-inch FHD Display"],
+        "availability": true,
+        "rating": 4.3
+    },
+    {
+        "product_id": "LAP008",
+        "product_title": "Samsung Galaxy Book Pro",
+        "product_image": "https://i.imgur.com/owFXetK.jpeg",
+        "category": "Laptops",
+        "price": 1199.99,
+        "description": "Thin and lightweight laptop with AMOLED display and Intel i5 processor.",
+        "Specification": ["Intel i5 Processor", "8GB RAM", "512GB SSD", "13.3-inch AMOLED Display"],
+        "availability": true,
+        "rating": 4.5
+    },
+    {
+        "product_id": "LAP009",
+        "product_title": "LG Gram 16",
+        "product_image": "https://i.imgur.com/7VA1d03.jpeg",
+        "category": "Laptops",
+        "price": 1399.99,
+        "description": "A lightweight laptop with a large 16-inch display and long battery life.",
+        "Specification": ["Intel i7 Processor", "16GB RAM", "512GB SSD", "16-inch WQXGA Display"],
+        "availability": true,
+        "rating": 4.6
+    },
+    {
+        "product_id": "PHN001",
+        "product_title": "iPhone 13 Pro",
+        "product_image": "https://i.imgur.com/XSz1biF.jpeg",
+        "category": "Phones",
+        "price": 999.99,
+        "description": "Apple's latest smartphone with A15 Bionic chip and improved camera.",
+        "Specification": ["A15 Bionic Chip", "128GB Storage", "6.1-inch Super Retina XDR Display"],
+        "availability": true,
+        "rating": 4.8
+    },
+    {
+        "product_id": "PHN002",
+        "product_title": "Samsung Galaxy S21 Ultra",
+        "product_image": "https://i.imgur.com/hMbiaSI.jpeg",
+        "category": "Phones",
+        "price": 1199.99,
+        "description": "A flagship phone with a high-quality camera and powerful performance.",
+        "Specification": ["Exynos 2100", "128GB Storage", "6.8-inch Dynamic AMOLED Display"],
+        "availability": true,
+        "rating": 4.7
+    },
+    {
+        "product_id": "PHN003",
+        "product_title": "Google Pixel 6",
+        "product_image": "https://i.imgur.com/OWSSEQC.jpeg",
+        "category": "Phones",
+        "price": 699.99,
+        "description": "Google's latest phone with AI-powered camera and Google Tensor chip.",
+        "Specification": ["Google Tensor", "128GB Storage", "6.4-inch AMOLED Display"],
+        "availability": true,
+        "rating": 4.6
+    },
+    {
+        "product_id": "PHN004",
+        "product_title": "OnePlus 9 Pro",
+        "product_image": "https://i.imgur.com/GhEEhEb.jpeg",
+        "category": "Phones",
+        "price": 969.99,
+        "description": "Flagship phone with Snapdragon 888 and Hasselblad camera collaboration.",
+        "Specification": ["Snapdragon 888", "256GB Storage", "6.7-inch AMOLED Display"],
+        "availability": true,
+        "rating": 4.5
+    },
+    {
+        "product_id": "ACC001",
+        "product_title": "Apple AirPods Pro",
+        "product_image": "https://i.imgur.com/CtkX2BU.jpeg",
+        "category": "Accessories",
+        "price": 249.99,
+        "description": "Noise-canceling earbuds with great sound quality and comfort.",
+        "Specification": ["Active Noise Cancellation", "Wireless Charging Case"],
+        "availability": true,
+        "rating": 4.7
+    },
+    {
+        "product_id": "ACC002",
+        "product_title": "Samsung Galaxy Buds Pro",
+        "product_image": "https://i.imgur.com/1100sqK.jpeg",
+        "category": "Accessories",
+        "price": 199.99,
+        "description": "Wireless earbuds with active noise canceling and high-quality sound.",
+        "Specification": ["Active Noise Cancellation", "IPX7 Water Resistance"],
+        "availability": true,
+        "rating": 4.5
+    },
+    {
+        "product_id": "ACC003",
+        "product_title": "Anker PowerCore 10000",
+        "product_image": "https://i.imgur.com/webs2H4.jpeg",
+        "category": "Accessories",
+        "price": 29.99,
+        "description": "Compact and portable 10,000mAh power bank for charging on the go.",
+        "Specification": ["10,000mAh Capacity", "Fast Charging"],
+        "availability": true,
+        "rating": 4.6
+    },
+    {
+        "product_id": "ACC004",
+        "product_title": "Logitech MX Master 3",
+        "product_image": "https://i.imgur.com/GlX28ZV.jpeg",
+        "category": "Accessories",
+        "price": 99.99,
+        "description": "Advanced ergonomic mouse with customizable buttons and fast scrolling.",
+        "Specification": ["Ergonomic Design", "Customizable Buttons"],
+        "availability": true,
+        "rating": 4.8
+    },
+    {
+        "product_id": "ACC005",
+        "product_title": "JBL Flip 5",
+        "product_image": "https://i.imgur.com/UHk02JJ.jpeg",
+        "category": "Accessories",
+        "price": 119.99,
+        "description": "Portable Bluetooth speaker with powerful sound and waterproof design.",
+        "Specification": ["Waterproof", "12 Hours Playtime"],
+        "availability": true,
+        "rating": 4.7
+    }
+]
