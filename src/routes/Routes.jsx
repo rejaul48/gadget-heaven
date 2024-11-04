@@ -7,6 +7,7 @@ import Dashboard from '../pages/Dashboard/Dashboard'
 import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import Details from '../pages/Details/Details'
 import { dataLoadFromApi } from '../utilities/FetchDataFromApi'
+import CategoryProduct from '../components/CategoryProduct/CategoryProduct'
 
 
 const routes = createBrowserRouter([
@@ -18,7 +19,14 @@ const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home ></Home>,
-                loader: dataLoadFromApi
+                loader: dataLoadFromApi,
+                children: [
+                    {
+                        path: '/category/:category',
+                        element: <CategoryProduct ></CategoryProduct>,
+                        loader: dataLoadFromApi
+                    }
+                ]
             },
             {
                 path: '/statistics',
