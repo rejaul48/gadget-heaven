@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 import MainLayout from '../layout/MainLayout'
 import Home from '../pages/Home/Home'
 import Statistics from '../pages/Statistics/Statistics'
@@ -8,6 +8,9 @@ import ErrorPage from '../pages/ErrorPage/ErrorPage'
 import Details from '../pages/Details/Details'
 import { dataLoadFromApi } from '../utilities/FetchDataFromApi'
 import CategoryProduct from '../components/CategoryProduct/CategoryProduct'
+import AddToCart from '../components/AddToCart/AddToCart'
+import AddToWishList from '../components/AddtoWishList/AddToWishList'
+
 
 
 const routes = createBrowserRouter([
@@ -18,6 +21,7 @@ const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
+
                 element: <Home ></Home>,
                 loader: dataLoadFromApi,
                 children: [
@@ -34,7 +38,25 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/dashboard',
-                element: <Dashboard ></Dashboard>
+                element: <Dashboard ></Dashboard>,
+                loader: dataLoadFromApi,
+                children: [
+                    {
+                        path: '/dashboard',
+                        element: <Navigate to='cart' replace></Navigate>
+                    },
+                    {
+                        path: 'cart',
+                        element: <AddToCart ></AddToCart>,
+                        loader: dataLoadFromApi
+
+                    },
+                    {
+                        path: 'wishlist',
+                        element: <AddToWishList ></AddToWishList>,
+                        loader: dataLoadFromApi
+                    }
+                ]
             }, {
                 path: '/details/:productId',
                 element: <Details ></Details>,

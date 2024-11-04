@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { getStoreCartData, getWishStoredData } from '../../utilities/localStorage';
+ 
 const Header = () => {
 
 
+    const [cartData, setCartData] = useState([])
+    const [wishData, setWishData] = useState([])
+
+    useEffect(() => {
+        const cartData = getStoreCartData();
+        const wishData = getWishStoredData();
+
+        setCartData(cartData)
+        setWishData(wishData)
+    }, [])
+
+
+    // find the location
     const location = useLocation();
 
     const isHomepage = location.pathname === '/';
@@ -72,15 +87,15 @@ const Header = () => {
                         <div className="navbar-end gap-5">
 
                             <div className="indicator">
-                                <span className="indicator-item badge bg-lime-100 text-black"><span>1</span></span>
+                                <span className="indicator-item badge bg-lime-100 text-black"><span>{cartData.length}</span></span>
                                 <div className="grid">
-                                    <Link className='bg-white p-2 rounded-full'><img className='w-[15px]' src="https://img.icons8.com/?size=24&id=85080&format=png" alt="" /></Link>
+                                    <Link to='/dashboard/cart' className='bg-white p-2 rounded-full'><img className='w-[15px]' src="https://img.icons8.com/?size=24&id=85080&format=png" alt="" /></Link>
                                 </div>
                             </div>
                             <div className="indicator">
-                                <span className="indicator-item badge bg-lime-100 text-black"><span>1</span></span>
+                                <span className="indicator-item badge bg-lime-100 text-black"><span>{wishData.length}</span></span>
                                 <div className="grid">
-                                    <Link className='bg-white p-2 rounded-full'><img className='w-[15px]' src="https://img.icons8.com/?size=24&id=86721&format=png" alt="" /></Link>
+                                    <Link to='/dashboard/wishlist' className='bg-white p-2 rounded-full'><img className='w-[15px]' src="https://img.icons8.com/?size=24&id=86721&format=png" alt="" /></Link>
                                 </div>
                             </div>
 

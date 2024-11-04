@@ -40,7 +40,9 @@ const Home = () => {
                         {/* Render All Category button only once */}
                         {categories.map((category, index) => (
                             <li key={index} className='bg-green-200 mt-3 mb-3 py-2 p-4 cursor-pointer rounded-full bg-opacity-25'>
-                                <Link to={category.category === 'All Category' ? '/' : `/category/${category.category}`}>
+                                <Link 
+                                className=' block py-1'
+                                to={category.category === 'All Category' ? '/' : `/category/${category.category}`}>
                                     {category.category}
                                 </Link>
                             </li>
