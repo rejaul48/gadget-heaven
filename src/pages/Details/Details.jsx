@@ -32,8 +32,8 @@ const Details = () => {
                 <div className="details_book_info flex gap-5 w-8/12 mx-auto -mt-32
                 bg-white p-4 rounded-lg
                 ">
-                    <div className="left w-5/12 h-auto">
-                        <img className='h-full' src={product_image} alt="" />
+                    <div className="left w-5/12 h-auto flex justify-center items-center">
+                        <img className='w-full h-full' src={product_image} alt="" />
                     </div>
 
                     <div className="right w-7/12">
@@ -55,13 +55,35 @@ const Details = () => {
                         </ul>
                         <h3 className='mt-2'><strong>Ratings:</strong></h3>
                         <div className='flex items-center gap-3'>
-                            <div className='flex'>
+
+
+                            {
+                                rating >= 5 ? (
+                                    <div className='flex'>
+                                        <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=8ggStxqyboK5&format=png" alt="" />
+                                        <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=8ggStxqyboK5&format=png" alt="" />
+                                        <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=8ggStxqyboK5&format=png" alt="" />
+                                        <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=8ggStxqyboK5&format=png" alt="" />
+                                        <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=8ggStxqyboK5&format=png" alt="" />
+                                    </div>
+                                ) : (
+                                    <div className='flex'>
+                                        <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=8ggStxqyboK5&format=png" alt="" />
+                                        <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=8ggStxqyboK5&format=png" alt="" />
+                                        <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=8ggStxqyboK5&format=png" alt="" />
+                                        <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=8ggStxqyboK5&format=png" alt="" />
+                                        <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=19295&format=png" alt="" />
+
+                                    </div>
+                                )
+                            }
+
+                            {/* <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=bSBJ7165l9Vr&format=gif" alt="" />
                                 <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=bSBJ7165l9Vr&format=gif" alt="" />
                                 <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=bSBJ7165l9Vr&format=gif" alt="" />
                                 <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=bSBJ7165l9Vr&format=gif" alt="" />
-                                <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=bSBJ7165l9Vr&format=gif" alt="" />
-                                <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=bSBJ7165l9Vr&format=gif" alt="" />
-                            </div>
+                                <img className='w-[25px]' src="https://img.icons8.com/?size=48&id=bSBJ7165l9Vr&format=gif" alt="" /> */}
+
                             <div><p className='text-xl font-semibold'>{rating}</p></div>
                         </div>
                         <div className="action_button flex items-center gap-5 mt-3">
