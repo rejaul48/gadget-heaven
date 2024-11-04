@@ -19,12 +19,12 @@ const Home = () => {
     return (
         <>
 
-            <section className='container mx-auto'>
+            <section className='container mx-auto px-4 xl:px-0'>
 
-                <section className='bg-primary h-[350px] rounded-b-lg'>
+                <section className='bg-primary h-[280px] md:h-[350px] rounded-b-lg'>
                     <div className='pt-4 text-center text-white'>
-                        <h2 className='text-[56px] font-bold w-9/12 mx-auto leading-snug '>Upgrade Your Tech Accessorize with Gadget Heaven Accessories</h2>
-                        <p className='text-sm w-6/12 mx-auto my-3'>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
+                        <h2 className='text-lg md:text-[36px] lg:text-[48px] xl:text-[56px] font-bold md:w-9/12 mx-auto leading-snug '>Upgrade Your Tech Accessorize with Gadget Heaven Accessories</h2>
+                        <p className='text-sm md:w-6/12 mx-auto my-3'>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
                         <Link className='bg-white py-2 px-8 rounded-full text-primary font-bold mt-2'>Shop Now</Link>
 
 
@@ -41,19 +41,19 @@ const Home = () => {
 
 
                 <div className="section_head text-center mt-4">
-                    <h2 className='text-4xl font-bold'>Explore Cutting-Edge Gadgets</h2>
+                    <h2 className='text-xl  md:text-4xl font-bold'>Explore Cutting-Edge Gadgets</h2>
                 </div>
 
 
                 {/* category section */}
 
-                <section className='flex gap-5 mt-12'>
-                    <div className='categories w-2/12'>
-                        <ul className='border-2 border-gray-300 px-5 rounded-lg'>
+                <section className='md:flex gap-5 mt-12'>
+                    <div className='categories md:w-3/12 lg:2/12'>
+                        <ul className='border-2 border-gray-300 px-5 rounded-lg '>
                             {
                                 categories.map(category => (
                                     <li onClick={() => { handleCategory(category.category) }} key={category.id} className='bg-green-200 mt-3 mb-3 py-2 p-4 cursor-pointer rounded-full bg-opacity-25' >
-                                        <h2
+                                        <h2 className='text-sm'
                                         ><span >{category.category}</span></h2>
                                     </li>
                                 ))
@@ -61,7 +61,7 @@ const Home = () => {
                         </ul>
                     </div>
 
-                    <div className='cata_wise_data w-10/12'>
+                    <div className='cata_wise_data md:w-9/12 lg:10/12'>
 
                         {
                             filteredProducts .length > 0 ? (<HomeCards products={filteredProducts } ></HomeCards>) : 

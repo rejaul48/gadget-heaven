@@ -9,27 +9,34 @@ const Header = () => {
 
     const conditionalHeader = isHomepage ? "rounded-t-lg bg-primary" : "rounded-full bg-white text-black";
     const headerTextColor = isHomepage ? "text-white" : "text-black";
+    const mobileWebName = isHomepage ? "text-white" : "text-black";
 
     const links = <>
         <li><NavLink to='/' >Home</NavLink> </li>
         <li><NavLink to='/statistics' >Statistics</NavLink> </li>
         <li><NavLink to='/dashboard' >Dashboard</NavLink> </li>
-       
+
     </>
 
     return (
 
         <>
-            <header className='container mx-auto mt-2 
+            <header className='container mx-auto mt-2  px-4 xl:px-0
             
             '>
+
+
                 <section className={`backdrop-blur-lg rounded-t-lg 
                 ${conditionalHeader}
           
                 `}>
-                    <div className={`navbar  rounded-lg ${headerTextColor} lg:px-8`}>
+                    <div className='text-center md:hidden'>
+                        <Link to='/' className={` text-2xl font-bold ${mobileWebName}`}>Gadget Heaven</Link >
+                    </div>
+                    <div className={`navbar  rounded-lg ${headerTextColor} px-5 lg:px-8`}>
+
                         <div className="navbar-start">
-                            <div className="dropdown">
+                            <div className="dropdown ">
                                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +59,7 @@ const Header = () => {
                                     }
                                 </ul>
                             </div>
-                            <Link to='/' className=" text-xl">Gadget Heaven</Link >
+                            <Link to='/' className=" text-3xl font-bold hidden md:block">Gadget Heaven</Link >
                         </div>
                         <div className="navbar-center hidden lg:flex">
                             <ul className="menu menu-horizontal px-2">
@@ -62,9 +69,22 @@ const Header = () => {
 
                             </ul>
                         </div>
-                        <div className="navbar-end gap-2">
-                            <Link className='bg-white p-2 rounded-full'><img className='w-[15px]' src="https://img.icons8.com/?size=24&id=85080&format=png" alt="" /></Link>
-                            <Link className='bg-white p-2 rounded-full'><img className='w-[15px]' src="https://img.icons8.com/?size=24&id=86721&format=png" alt="" /></Link>
+                        <div className="navbar-end gap-5">
+
+                            <div className="indicator">
+                                <span className="indicator-item badge bg-lime-100 text-black"><span>1</span></span>
+                                <div className="grid">
+                                    <Link className='bg-white p-2 rounded-full'><img className='w-[15px]' src="https://img.icons8.com/?size=24&id=85080&format=png" alt="" /></Link>
+                                </div>
+                            </div>
+                            <div className="indicator">
+                                <span className="indicator-item badge bg-lime-100 text-black"><span>1</span></span>
+                                <div className="grid">
+                                    <Link className='bg-white p-2 rounded-full'><img className='w-[15px]' src="https://img.icons8.com/?size=24&id=86721&format=png" alt="" /></Link>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </section>
