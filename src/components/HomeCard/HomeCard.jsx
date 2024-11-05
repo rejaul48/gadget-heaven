@@ -8,7 +8,7 @@ const HomeCard = ({ product }) => {
     return (
         <>
 
-            <section className='mt-2 h-full flex flex-col justify-between'>
+            <section className='mt-2 h-full flex flex-col justify-between p-2'>
                 <div className='w-auto h-[160px] mx-auto'>
                     <img className='w-full h-full object-fill' src={product_image} alt="img" />
                 </div>
