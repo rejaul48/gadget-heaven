@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { ProductContext } from './../../ContextApi/ConextApi';
 import Modal from '../../components/Modal/Modal';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async'; 
 
 const Dashboard = () => {
 
