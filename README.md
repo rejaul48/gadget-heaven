@@ -65,8 +65,11 @@ npm install
 ## Live Demo
 [Live demo link](https://gadget-our-product.surge.sh/)
 
-## Project Requirement
-[Project Requirement PDF](https://github.com/rejaul48/gadget-heaven/raw/main/project-requirement.pdf)
+<iframe src="https://github.com/rejaul48/gadget-heaven/raw/main/project-requirement.pdf" width="100%" height="600px">
+    This browser does not support PDFs. Please download the PDF to view it: 
+    <a href="https://github.com/rejaul48/gadget-heaven/raw/main/project-requirement.pdf">Download PDF</a>.
+</iframe>
+
 
 ## Contact me
 **Email**: [rejaulislammr25@gmail.com](mailto:rejaulislammr25@gmail.com)
