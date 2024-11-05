@@ -1,4 +1,3 @@
-MY Readme.md file for all Project
 
 # **GadgetHaven** Your Ultimate Gadget Destination
 
@@ -6,17 +5,9 @@ MY Readme.md file for all Project
 
 ## Overview
 
-
-Certainly! Here’s a full overview of GadgetHaven in the requested style:
-
 GadgetHaven is a dynamic e-commerce platform specifically crafted for tech enthusiasts to discover, manage, and purchase the latest gadgets. This website provides a streamlined shopping experience featuring a variety of products, from laptops and phones to accessories, with easy navigation and detailed pages for each gadget category. <br> <br>
 
 Users can seamlessly browse through the Home page, which showcases trending gadgets, product categories, and a selection of high-rated items. The Product Details page offers in-depth information on each gadget, including specifications, ratings, and pricing, allowing users to make informed purchasing decisions. Additionally, GadgetHaven offers essential e-commerce functionalities, such as a shopping cart and a wishlist system, allowing users to keep track of gadgets they intend to buy or save for future reference.
-
-## Feature
-Certainly! Here’s a feature overview for **GadgetHaven** in the style you requested:
-
----
 
 ## Features
 
@@ -33,9 +24,9 @@ Certainly! Here’s a feature overview for **GadgetHaven** in the style you requ
 
 ## Technologys
 🔵 HTML for the basic structure. <br>
-🔵 CSS and Tailwind CSS for styling and responsiveness. <br>
+🔵 Tailwind CSS for styling and responsiveness. <br>
 🔵 React for the frontend framework. <br>
-🔵 JavaScript for logic and interactivity. <br>
+🔵 JavaScript and JSX for logic and interactivity. <br>
 
 ## React Concepts Used in GadgetHaven
 
@@ -73,8 +64,6 @@ npm install
 ```
 ## Live Demo
 [Live demo link](https://gadget-our-product.surge.sh/)
-
-**Note:** "Page to Read" The page is now static, it will be made dynamic in the future.
 
 ## Contact me
 **Email**: [rejaulislammr25@gmail.com](mailto:rejaulislammr25@gmail.com)
