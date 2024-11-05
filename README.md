@@ -65,6 +65,9 @@ npm install
 ## Live Demo
 [Live demo link](https://gadget-our-product.surge.sh/)
 
+## Project Requirement
+[project requirement pdf] (https://github.com/rejaul48/gadget-heaven/blob/main/project-requirement.pdf)
+
 ## Contact me
 **Email**: [rejaulislammr25@gmail.com](mailto:rejaulislammr25@gmail.com)
 
