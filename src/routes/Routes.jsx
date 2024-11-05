@@ -35,7 +35,8 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/statistics',
-                element: <Statistics ></Statistics>
+                element: <Statistics ></Statistics>,
+                loader: dataLoadFromApi
             },
             {
                 path: '/dashboard',
@@ -65,7 +66,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/faq',
-                element : <Faq ></Faq>
+                element: <Faq ></Faq>
             }
 
         ]
