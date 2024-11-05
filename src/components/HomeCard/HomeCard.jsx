@@ -9,8 +9,8 @@ const HomeCard = ({ product }) => {
         <>
 
             <section className='mt-2 h-full flex flex-col justify-between'>
-                <div className='w-4/6 h-[170px] mx-auto'>
-                    <img className='w-full h-full object-cover' src={product_image} alt="img" />
+                <div className='w-auto h-[160px] mx-auto'>
+                    <img className='w-full h-full object-fill' src={product_image} alt="img" />
                 </div>
                 <div>
                     <h2 className='text-xl lg:text-[17px] xl:text-xl font-semibold mt-2'>{product_title}</h2>
