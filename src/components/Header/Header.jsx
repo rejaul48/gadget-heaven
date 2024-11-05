@@ -32,8 +32,8 @@ const Header = () => {
     );
 
     return (
-        <header className='container mx-auto mt-2 px-4 xl:px-0 sticky top-0 z-20'>
-            <section className={`backdrop-blur-lg ${conditionalHeader}`}>
+        <header className='container mx-auto mt-2 px-4 xl:px-0 sticky top-0 z-20 '>
+            <section className={`backdrop-blur-lg ${conditionalHeader} py-2`}>
                 <div className='text-center md:hidden'>
                     <Link to='/' className={` text-2xl font-bold ${mobileWebName}`}>Gadget Heaven</Link>
                 </div>
@@ -56,14 +56,14 @@ const Header = () => {
                             {links}
                         </ul>
                     </div>
-                    <div className="navbar-end gap-5">
+                    <div className="navbar-end gap-4">
                         <div className="indicator">
                             <span className="indicator-item badge bg-lime-100 text-black">
                                 <span>{cart.length}</span>
                             </span>
                             <div className="grid">
                                 <Link to='/dashboard/cart' className='bg-white p-2 rounded-full'>
-                                    <img className='w-[15px]' src="https://img.icons8.com/?size=24&id=85080&format=png" alt="" />
+                                    <img className='w-[23px]' src="https://img.icons8.com/?size=24&id=85080&format=png" alt="" />
                                 </Link>
                             </div>
                         </div>
@@ -73,7 +73,7 @@ const Header = () => {
                             </span>
                             <div className="grid">
                                 <Link to='/dashboard/wishlist' className='bg-white p-2 rounded-full'>
-                                    <img className='w-[15px]' src="https://img.icons8.com/?size=24&id=86721&format=png" alt="" />
+                                    <img className='w-[23px]' src="https://img.icons8.com/?size=24&id=86721&format=png" alt="" />
                                 </Link>
                             </div>
                         </div>
