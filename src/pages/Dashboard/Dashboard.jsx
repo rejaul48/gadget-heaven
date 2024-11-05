@@ -26,6 +26,7 @@ const Dashboard = () => {
 
     const toggleSortOrder = () => {
         setIsSortedAscending(prev => !prev);
+     
     };
 
     const handlePurchaseClick = () => {

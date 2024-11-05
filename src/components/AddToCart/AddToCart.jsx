@@ -18,7 +18,7 @@ const AddToCart = () => {
     const { isSortedAscending } = useOutletContext();
 
     // Sort cart items based on price, depending on the sorting state
-    const sortedCart = [...cart].sort((a, b) => isSortedAscending ? a.price - b.price : b.price - a.price);
+    const sortedCart = [...cart].sort((a, b) => !isSortedAscending ? a.price - b.price : b.price - a.price);
 
     return (
         <div>

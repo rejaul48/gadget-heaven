@@ -45,7 +45,7 @@ const AddedCard = ({ filterProduct, onRemove, toastMessage }) => {
         <>
             <section className='mt-6'>
                 <div className='md:flex gap-4 justify-center shadow-sm p-3 rounded-lg bg-base-200'>
-                    <div className='w-8/12 mx-auto md:mx-0 md:w-3/12 lg:w-2/12'>
+                    <div className='w-8/12 h-[180px] mx-auto md:mx-0 md:w-3/12 lg:w-2/12'>
                         <img className='w-full h-full rounded-lg' src={product_image} alt={product_title} />
                     </div>
                     <div className='flex justify-between md:w-9/12 lg:w-10/12'>
