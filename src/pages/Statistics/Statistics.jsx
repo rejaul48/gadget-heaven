@@ -1,15 +1,18 @@
 import React from 'react'
-import useTitleHook from '../../components/useTitleHook/useTitleHook'
+import { Helmet } from 'react-helmet-async'
 
 const Statistics = () => {
-  // dynamic title
-  useTitleHook('Statistics')
+
   return (
     <>
-     
-     <section className='container mx-auto'>
-          <h2>This is Statistics page</h2>
-     </section>
+
+      <Helmet >
+        <title>Statistics | Gadget E-commerce website</title>
+      </Helmet>
+
+      <section className='container mx-auto'>
+        <h2>This is Statistics page</h2>
+      </section>
 
     </>
   )

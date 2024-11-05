@@ -1,19 +1,17 @@
 import React, { useContext } from 'react';
 import AddedCard from '../AddedCard/AddedCard';
 import { ProductContext } from './../../ContextApi/ConextApi';
-import { showSuccessToast } from '../../utilities/showToast';
-import {   useLocation, useOutletContext } from 'react-router-dom';
+import {  useOutletContext } from 'react-router-dom';
+ 
 
 const AddToCart = () => {
-    const { cart, removeFromCart } = useContext(ProductContext);
 
-    const location = useLocation();
-    const isCarthPath = location.pathname === '/dashboard/cart';
+    const { cart, removeFromCart } = useContext(ProductContext);
 
     // Handle removing an item from the cart
     const handleRemove = (id) => {
         removeFromCart(id);
-        
+
     };
 
     // Access the sorting state using useOutletContext
@@ -34,10 +32,13 @@ const AddToCart = () => {
                         key={cartProduct.product_id}
                         filterProduct={cartProduct}
                         onRemove={handleRemove}
-                        toastMessage = 'items removed from Cart'
+                        toastMessage='product removed from Cart'
                     />
                 ))
             )}
+
+          
+
         </div>
     );
 };

@@ -1,8 +1,13 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
 
 const Faq = () => {
     return (
         <>
+
+            <Helmet >
+                <title>FAQ | Gadget E-commerce website</title>
+            </Helmet>
 
             <section className=' container mx-auto  mt-4 px-4 xl:px-0'>
 

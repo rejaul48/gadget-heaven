@@ -1,16 +1,18 @@
 import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
-import useTitleHook from '../../components/useTitleHook/useTitleHook';
 import { showSuccessToast, showWarnToast } from '../../utilities/showToast';
 import { ProductContext } from './../../ContextApi/ConextApi';
+import { Helmet } from 'react-helmet-async';
 
 const Details = () => {
-    // Dynamic Title
-    useTitleHook('Details');
+
+    <Helmet >
+        <title>Details | Gadget E-commerce website</title>
+    </Helmet>
 
     const { productId } = useParams();
     const { productData } = useLoaderData();
-    const { addToCart, addToWishlist, wishlist, cart } = useContext(ProductContext); 
+    const { addToCart, addToWishlist, wishlist, cart } = useContext(ProductContext);
 
     const product = productData.find(item => item.product_id === productId);
 
