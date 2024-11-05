@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { showSuccessToast, showWarnToast } from '../../utilities/showToast';
 import { ProductContext } from './../../ContextApi/ConextApi';
@@ -13,6 +13,20 @@ const Details = () => {
     const { productId } = useParams();
     const { productData } = useLoaderData();
     const { addToCart, addToWishlist, wishlist, cart } = useContext(ProductContext);
+    // disabled wishlist button state when user want to click more that one time
+    const [isDisabled, setIsDisabled] = useState(false)
+
+    // disabled button when it was clicked before
+    useEffect(() => {
+        if (wishlist.some(item => item.product_id === productId)) {
+            setIsDisabled(true); 
+        } else {
+            setIsDisabled(false);  
+        }
+    }, [productId, wishlist]);
+    
+
+    // find product 
 
     const product = productData.find(item => item.product_id === productId);
 
@@ -38,6 +52,9 @@ const Details = () => {
         if (wishlist.some(item => item.product_id === product.product_id)) {
             return showWarnToast('Item already exists in wishlist');
         }
+
+        setIsDisabled(true)
+
         addToWishlist(product); // Add product to wishlist
         showSuccessToast('Item added to wishlist');
     };
@@ -102,8 +119,10 @@ const Details = () => {
                         <button onClick={handleCartBtn} className='flex items-center gap-1 bg-primary text-white py-2 px-4 rounded-full'>
                             Add To Cart <span><img className='w-[20px]' src="https://img.icons8.com/?size=50&id=9720&format=png" alt="" /></span>
                         </button>
-                        <button onClick={handleWishBtn}>
-                            <img className='w-[45px]' src="https://img.icons8.com/?size=50&id=L2sPz0nl-coE&format=png" alt="" />
+                        <button onClick={handleWishBtn} disabled={isDisabled}>
+                            <div className={`h-[55px] w-[55px] bg-primary flex items-center justify-center rounded-full ${isDisabled ? 'bg-opacity-20' : 'bg-opacity-100'}`}>
+                                <img className='w-[35px]' src="https://img.icons8.com/?size=50&id=L2sPz0nl-coE&format=png" alt="" />
+                            </div>
                         </button>
                     </div>
                 </div>
