@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ProductContext } from './../../ContextApi/ConextApi';
 import { showSuccessToast, showWarnToast } from '../../utilities/showToast';
 import { useLocation } from 'react-router-dom';
- 
+
 
 const AddedCard = ({ filterProduct, onRemove, toastMessage }) => {
 
@@ -51,7 +51,7 @@ const AddedCard = ({ filterProduct, onRemove, toastMessage }) => {
                     <div className='flex justify-between md:w-9/12 lg:w-10/12'>
                         <div>
                             <h2 className='text-lg mt-2 md:mt-0 md:text-2xl font-bold'>{product_title}</h2>
-                            <p className='text-sm text-gray-600 py-2'>{description}</p>
+                            <p className='text-sm text-gray-600 py-2 md:w-10/12'>{description}</p>
                             <h3 className='text-lg font-semibold'>Price: $<span>{price}</span></h3>
                             <div className='mt-2 flex items-center md:flex-none gap-5 md:gap-0'>
                                 {!isDisabledAddToCartBtn && (
@@ -61,13 +61,22 @@ const AddedCard = ({ filterProduct, onRemove, toastMessage }) => {
                                         Add To Cart
                                     </button>
                                 )}
-                            </div>
-                        </div>
-                        <div className='flex items-center'>
-                            <div className='hidden md:block'>
+
                                 <button
                                     onClick={handleRemove}
-                                    className='remove_btn'>
+                                    className='remove_btn md:hidden'>
+                                    <img className='w-[45px]' src="https://img.icons8.com/?size=50&id=3062&format=png" alt="Remove" />
+                                </button>
+
+                            </div>
+                        </div>
+
+
+                        <div className='flex items-center'>
+                            <div>
+                                <button
+                                    onClick={handleRemove}
+                                    className='remove_btn hidden md:block'>
                                     <img src="https://img.icons8.com/?size=50&id=3062&format=png" alt="Remove" />
                                 </button>
                             </div>
@@ -76,7 +85,7 @@ const AddedCard = ({ filterProduct, onRemove, toastMessage }) => {
                 </div>
             </section>
 
-           
+
         </>
 
     );
