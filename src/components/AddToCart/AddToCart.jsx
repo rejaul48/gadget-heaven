@@ -1,41 +1,44 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AddedCard from '../AddedCard/AddedCard';
-import { getStoreCartData } from '../../utilities/localStorage';
-import { useLoaderData, useOutletContext } from 'react-router-dom';
+import { ProductContext } from './../../ContextApi/ConextApi';
+import { showSuccessToast } from '../../utilities/showToast';
+import {   useLocation, useOutletContext } from 'react-router-dom';
 
 const AddToCart = () => {
-    // This data from API
-    const { productData } = useLoaderData();
-    // This data from localStorage
-    const getCartData = getStoreCartData();
-    // Get sorting order from context
-    const { sortOrder } = useOutletContext();
+    const { cart, removeFromCart } = useContext(ProductContext);
 
-    const filterProducts = productData.filter(product =>
-        getCartData.includes(product.product_id)
-    );
+    const location = useLocation();
+    const isCarthPath = location.pathname === '/dashboard/cart';
 
-    // Sort products based on the sort order
-    const sortedProducts = [...filterProducts].sort((a, b) => {
-        return sortOrder === 'asc' ? a.price - b.price : b.price - a.price;
-    });
-
-    // Handle removing an item
+    // Handle removing an item from the cart
     const handleRemove = (id) => {
-        return
-
+        removeFromCart(id);
+        
     };
 
+    // Access the sorting state using useOutletContext
+    const { isSortedAscending } = useOutletContext();
+
+    // Sort cart items based on price, depending on the sorting state
+    const sortedCart = [...cart].sort((a, b) => isSortedAscending ? a.price - b.price : b.price - a.price);
+
     return (
-        <>
-            {sortedProducts.map((filterProduct) => (
-                <AddedCard
-                    key={filterProduct.product_id}
-                    filterProduct={filterProduct}
-                    onRemove={handleRemove}
-                />
-            ))}
-        </>
+        <div>
+            {sortedCart.length === 0 ? (
+                <div className='flex justify-center items-center h-[30vh]'>
+                    <p className='text-4xl font-bold text-gray-400'>Cart is empty.</p>
+                </div>
+            ) : (
+                sortedCart.map((cartProduct) => (
+                    <AddedCard
+                        key={cartProduct.product_id}
+                        filterProduct={cartProduct}
+                        onRemove={handleRemove}
+                        toastMessage = 'items removed from Cart'
+                    />
+                ))
+            )}
+        </div>
     );
 };
 

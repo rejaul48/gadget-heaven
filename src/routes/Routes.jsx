@@ -10,6 +10,7 @@ import { dataLoadFromApi } from '../utilities/FetchDataFromApi'
 import CategoryProduct from '../components/CategoryProduct/CategoryProduct'
 import AddToCart from '../components/AddToCart/AddToCart'
 import AddToWishList from '../components/AddtoWishList/AddToWishList'
+import Faq from '../pages/Faq/Faq'
 
 
 
@@ -61,6 +62,10 @@ const routes = createBrowserRouter([
                 path: '/details/:productId',
                 element: <Details ></Details>,
                 loader: dataLoadFromApi
+            },
+            {
+                path: '/faq',
+                element : <Faq ></Faq>
             }
 
         ]

@@ -1,60 +1,45 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import {
-    getStoreCartData,
-    addToLocalStorageCartData,
-    removeFromLocalStorageCartData,
-    removeFromLocalStorageWishData
-} from '../../utilities/localStorage';
+import React, { useContext } from 'react';
+import { ProductContext } from './../../ContextApi/ConextApi';
 import { showSuccessToast, showWarnToast } from '../../utilities/showToast';
+import { useLocation } from 'react-router-dom';
 
-const AddedCard = ({ filterProduct, onRemove }) => {
-    const { product_image, product_title, description, price, product_id } = filterProduct;
 
-    // Determine current page (cart or wishlist)
+const AddedCard = ({ filterProduct, onRemove, toastMessage }) => {
+
     const location = useLocation();
-    const isCart = location.pathname === '/dashboard/cart';
-    const isWishlist = location.pathname === '/dashboard/wishlist';
+    const isDisabledAddToCartBtn = location.pathname === '/dashboard/cart'
 
-    // Handle moving item from wishlist to cart
-    const handleWishlistToCart = (id) => {
-        const cartData = getStoreCartData();
+    const { product_image, product_title, description, price, product_id } = filterProduct;
+    const { cart, setCart, wishlist, setWishlist } = useContext(ProductContext);
 
-        if (!cartData.includes(id)) {
-            addToLocalStorageCartData(id); // Add to cart
-            removeFromLocalStorageWishData(id); // Remove from wishlist
-
-            // Only update the state in the parent component without showing the toast for removal
-            onRemove(id, false); // Pass false to prevent showing the remove toast
-
-            // Show toast for action
-            return showSuccessToast(`${product_title} added into Cart`);
+    // Function to handle adding product to cart and removing it from wishlist
+    const handleWishlistToCart = () => {
+        // Check if the product is already in the cart
+        if (!cart.some(item => item.product_id === product_id)) {
+            // Add product to cart
+            setCart(prev => [...prev, filterProduct]);
+            // Remove product from wishlist
+            setWishlist(prev => prev.filter(item => item.product_id !== product_id));
+            showSuccessToast(`${product_title} added to Cart`);
         } else {
-            return showWarnToast(`${product_title} already exists in cart`);
+            showWarnToast(`${product_title} already exists in cart`);
         }
     };
 
-
-    // Handle removing item from wishlist
-    const handleRemoveFromWishlist = (id) => {
-        removeFromLocalStorageWishData(id); // Remove item from wishlist
+    // Function to handle removing product from wishlist
+    const handleRemove = () => {
         if (onRemove) {
-            onRemove(id);
-          
-        } else {
-             
+            onRemove(product_id);
+
+            if (toastMessage) {
+                showSuccessToast(`${product_title}  ${toastMessage} `)
+            }
+
         }
     };
 
-    // Handle removing item from cart
-    const handleRemoveFromCart = (id) => {
-        removeFromLocalStorageCartData(id); // Remove item from cart
-        onRemove(id); // Update the state in the parent component
-        
-        // show toast for remove item from cart
-        return showSuccessToast(`${product_title} removed from Cart`)
-    };
+    // Check if the product is in the wishlist
+    const isInWishlist = wishlist.some(item => item.product_id === product_id);
 
     return (
         <section className='mt-6'>
@@ -68,20 +53,19 @@ const AddedCard = ({ filterProduct, onRemove }) => {
                         <p className='text-sm text-gray-600 py-2'>{description}</p>
                         <h3 className='text-lg font-semibold'>Price: $<span>{price}</span></h3>
                         <div className='mt-2 flex items-center md:flex-none gap-5 md:gap-0'>
-                            {isWishlist && (
+                            {!isDisabledAddToCartBtn && (
                                 <button
-                                    onClick={() => handleWishlistToCart(product_id)}
+                                    onClick={() => { handleWishlistToCart(product_id) }}
                                     className='bg-primary text-white py-2 px-5 rounded-full'>
                                     Add To Cart
                                 </button>
                             )}
-                             
                         </div>
                     </div>
                     <div className='flex items-center'>
                         <div className='hidden md:block'>
                             <button
-                                onClick={() => isCart ? handleRemoveFromCart(product_id) : handleRemoveFromWishlist(product_id)}
+                                onClick={handleRemove}
                                 className='remove_btn'>
                                 <img src="https://img.icons8.com/?size=50&id=3062&format=png" alt="Remove" />
                             </button>
@@ -91,18 +75,6 @@ const AddedCard = ({ filterProduct, onRemove }) => {
             </div>
         </section>
     );
-};
-
-// PropTypes validation
-AddedCard.propTypes = {
-    filterProduct: PropTypes.shape({
-        product_image: PropTypes.string.isRequired,
-        product_title: PropTypes.string.isRequired,
-        description: PropTypes.string,
-        price: PropTypes.number.isRequired,
-        product_id: PropTypes.string.isRequired,
-    }).isRequired,
-    onRemove: PropTypes.func.isRequired,
 };
 
 export default AddedCard;

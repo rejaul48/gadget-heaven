@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const showWarnToast = (message, type = 'warn') => {
     toast[type](message, {
-        position: "top-center",
+        position: "top-right",
         autoClose: 1300,
         hideProgressBar: false,
         closeOnClick: true,
@@ -19,7 +19,7 @@ const showWarnToast = (message, type = 'warn') => {
 // Success toast easily handle with function
 const showSuccessToast = (message, type = 'success') => {
     toast[type](message, {
-        position: "top-center",
+        position: "top-right",
         autoClose: 1300,
         hideProgressBar: false,
         closeOnClick: true,
