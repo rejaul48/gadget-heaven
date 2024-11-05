@@ -1,7 +1,8 @@
 import React from 'react'
 import { useLoaderData, useParams } from 'react-router-dom'
-import { addToLocalStorageCartData, addWishDataIntoLocalStorage } from '../../utilities/localStorage';
+import { addToLocalStorageCartData, addWishDataIntoLocalStorage, getStoreCartData, getWishStoredData } from '../../utilities/localStorage';
 import useTitleHook from '../../components/useTitleHook/useTitleHook';
+import { showSuccessToast, showWarnToast } from '../../utilities/showToast';
 
 const Details = () => {
 
@@ -13,12 +14,25 @@ const Details = () => {
 
     // add to localStorage
     const handleCartBtn = (id) => {
+        const getCartInfo = getStoreCartData()
+        if(getCartInfo.includes(id)){
+            return showWarnToast('item already exist in cart')
+        }
         addToLocalStorageCartData(id)
+        showSuccessToast('item added into cart')
     }
     const handleWishBtn = (id) => {
-        addWishDataIntoLocalStorage(id)
-    }
 
+        const getIdFromLocal = getWishStoredData();
+
+        if (getIdFromLocal.includes(id)) {
+           return showWarnToast('item already exist in wishlist')
+            
+        }
+        addWishDataIntoLocalStorage(id)
+        showSuccessToast('Item added into wishlist')
+
+    }
 
     const product = productData.find(item => item.product_id === productId);
 

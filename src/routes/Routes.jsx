@@ -42,8 +42,8 @@ const routes = createBrowserRouter([
                 loader: dataLoadFromApi,
                 children: [
                     {
-                        path: '/dashboard',
-                        element: <Navigate to='cart' replace></Navigate>
+                        index: true,
+                        element: <Navigate to='cart' ></Navigate>
                     },
                     {
                         path: 'cart',

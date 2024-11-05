@@ -1,11 +1,12 @@
 import React from 'react';
 import AddedCard from '../AddedCard/AddedCard';
-import { getWishStoredData } from '../../utilities/localStorage'; 
+import { getWishStoredData } from '../../utilities/localStorage';
 import { useLoaderData, useOutletContext } from 'react-router-dom';
+import { showSuccessToast } from '../../utilities/showToast';
 
 const AddToWishlist = () => {
     const { productData } = useLoaderData();
-    const getWishData = getWishStoredData(); 
+    const getWishData = getWishStoredData();
     const { sortOrder } = useOutletContext();
 
     // Filter products based on wishlist data
@@ -19,10 +20,13 @@ const AddToWishlist = () => {
     });
 
     // Handle removing an item from the wishlist
-    const handleRemove = (id) => {
-        console.log(`Item with ID: ${id} removed from the wishlist.`); // need to add toast here
-        
+    const handleRemove = (id, showToast = true) => {
+        const removeProductName = productData.find(product => product.product_id === id);
+        if (showToast) {
+            showSuccessToast(`${removeProductName.product_title} removed from wishlist`);
+        }
     };
+    
 
     return (
         <>
@@ -30,7 +34,7 @@ const AddToWishlist = () => {
                 <AddedCard
                     key={filterProduct.product_id}
                     filterProduct={filterProduct}
-                    onRemove={handleRemove} 
+                    onRemove={handleRemove}
                 />
             ))}
         </>

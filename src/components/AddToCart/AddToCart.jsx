@@ -22,8 +22,8 @@ const AddToCart = () => {
 
     // Handle removing an item
     const handleRemove = (id) => {
-        console.log(`Item with ID: ${id} removed from the cart.`); // need to add toast here
-        
+        return
+
     };
 
     return (
@@ -32,7 +32,7 @@ const AddToCart = () => {
                 <AddedCard
                     key={filterProduct.product_id}
                     filterProduct={filterProduct}
-                    onRemove={handleRemove} 
+                    onRemove={handleRemove}
                 />
             ))}
         </>

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { getStoreCartData, getWishStoredData } from '../../utilities/localStorage';
- 
+
+
 const Header = () => {
 
 
@@ -22,26 +23,59 @@ const Header = () => {
 
     const isHomepage = location.pathname === '/';
 
-    const conditionalHeader = isHomepage ? "rounded-t-lg bg-primary" : "rounded-full bg-white text-black";
+    const conditionalHeader = isHomepage ? "rounded-t-lg bg-primary" : " bg-white rounded-none text-black";
     const headerTextColor = isHomepage ? "text-white" : "text-black";
     const mobileWebName = isHomepage ? "text-white" : "text-black";
 
-    const links = <>
-        <li><NavLink to='/' >Home</NavLink> </li>
-        <li><NavLink to='/statistics' >Statistics</NavLink> </li>
-        <li><NavLink to='/dashboard' >Dashboard</NavLink> </li>
+    // const links = <>
+    //     <li><NavLink to='/' className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>Home</NavLink> </li>
+    //     {/* <NavLink to='/' className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+    //         Home
+    //     </NavLink> */}
+    //     <li><NavLink to='/statistics' >Statistics</NavLink> </li>
+    //     <li><NavLink to='/dashboard' >Dashboard</NavLink> </li>
 
-    </>
+    // </>
+
+    const links = (
+        <>
+            <li>
+                <NavLink
+                    to='/'
+                   
+                >
+                    Home
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to='/statistics'
+                    
+                >
+                    Statistics
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to='/dashboard'
+                 
+                >
+                    Dashboard
+                </NavLink>
+            </li>
+        </>
+    );
+
 
     return (
 
         <>
-            <header className='container mx-auto mt-2  px-4 xl:px-0
+            <header className='container mx-auto mt-2  px-4 xl:px-0 sticky top-0 z-20
             
             '>
 
 
-                <section className={`backdrop-blur-lg rounded-t-lg 
+                <section className={`backdrop-blur-lg
                 ${conditionalHeader}
           
                 `}>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet, useLoaderData, useLocation } from 'react-router-dom';
 import { getStoreCartData } from '../../utilities/localStorage';
 import useTitleHook from '../../components/useTitleHook/useTitleHook';
@@ -6,6 +6,9 @@ import useTitleHook from '../../components/useTitleHook/useTitleHook';
 const Dashboard = () => {
   // Dynamic title show here
   useTitleHook('Dashboard')
+
+  // this is purchase button state
+  const [isdisabled, setIsDisabled] = useState(true)
 
   const location = useLocation();
   const isCartPage = location.pathname === '/dashboard/cart';
@@ -23,6 +26,12 @@ const Dashboard = () => {
     ? productData.filter(product => cartData.includes(product.product_id))
       .reduce((acu, product) => Math.round(acu + product.price), 0)
     : 0;
+
+  // check total price and set button visible condition
+  useEffect(() => {
+    setIsDisabled(totalPrice <= 0)
+  }, [totalPrice])
+
 
   const toggleSortOrder = () => {
     setSortOrder(prevOrder => (prevOrder === 'asc' ? 'desc' : 'asc'));
@@ -73,7 +82,7 @@ const Dashboard = () => {
               className='flex items-center gap-1 border-2 border-primary text-primary font-bold px-5 py-2 rounded-full'>
               Sorted By Price <span><img className='w-[15px]' src="https://img.icons8.com/?size=24&id=100608&format=png" alt="" /></span>
             </button>
-            <button className='bg-primary text-white px-8 py-3 rounded-full'>Purchase</button>
+            <button disabled={isdisabled} className={`purchase_btn bg-primary text-white px-8 py-3 rounded-full ${isdisabled ? "bg-opacity-30" : "bg-opacity-100"}`}>Purchase</button>
           </div>
         </div>
       ) : (
