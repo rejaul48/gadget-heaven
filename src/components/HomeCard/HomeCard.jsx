@@ -14,7 +14,7 @@ const HomeCard = ({ product }) => {
                 </div>
                 <div>
                     <h2 className='text-xl lg:text-[17px] xl:text-xl font-semibold mt-2'>{product_title}</h2>
-                    <p className='text-gray-500 my-1 pb-3'>Price: <span>{price}K</span></p>
+                    <p className='text-gray-500 my-1 pb-3'>Price: <span>{price}$</span></p>
                 </div>
                 <div className='pb-3'>
                     <Link to={`/details/${product.product_id}`} className='border-2 border-primary py-2 px-4 rounded-full'>View Details</Link>
